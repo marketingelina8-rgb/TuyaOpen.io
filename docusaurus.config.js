@@ -151,10 +151,14 @@ const config = {
             { type: 'docSidebar', sidebarId: 'duckyclawSidebar', label: 'TuyaOpenClaw' },
           ],
         },
-        {
+                {
+          type: 'dropdown',
           label: 'Learn',
-          to: '/learn',
           position: 'left',
+          items: [
+            { label: 'Learn', to: '/learn' },
+            { label: 'FAQ', to: '/faq' },
+          ],
         },
         {
           type: 'dropdown',
@@ -348,6 +352,18 @@ const config = {
   },
 
   plugins: [
+        // FAQ docs plugin
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'faq',
+        path: 'faq',
+        routeBasePath: 'faq',
+        sidebarPath: require.resolve('./sidebarsFaq.js'),
+        editUrl: 'https://github.com/Tuya-Community/TuyaOpen.io/edit/master/',
+        showLastUpdateTime: true,
+      },
+    ],
     './docusaurus-tailwind-v3',
     'docusaurus-plugin-image-zoom',
     './plugins/mermaid-panzoom',
